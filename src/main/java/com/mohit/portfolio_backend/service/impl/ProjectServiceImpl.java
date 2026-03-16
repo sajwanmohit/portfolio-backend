@@ -8,6 +8,8 @@ import com.mohit.portfolio_backend.repository.ProjectRepository;
 import com.mohit.portfolio_backend.service.ProjectService;
 import com.mohit.portfolio_backend.util.ProjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,12 +31,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<ProjectResponse> getAllProjects() {
+    public Page<ProjectResponse> getAllProjects(Pageable pageable) {
 
-        return projectRepository.findAll()
-                .stream()
-                .map(ProjectMapper::toResponse)
-                .toList();
+        Page<Project> page = projectRepository.findAll(pageable);
+        return page.map(ProjectMapper::toResponse);
     }
 
     @Override

@@ -5,6 +5,8 @@ import com.mohit.portfolio_backend.dto.ProjectResponse;
 import com.mohit.portfolio_backend.entity.Project;
 import com.mohit.portfolio_backend.service.ProjectService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
@@ -23,8 +25,8 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<ProjectResponse> getProjects() {
-        return projectService.getAllProjects();
+    public Page<ProjectResponse> getProjects(Pageable pageable) {
+        return projectService.getAllProjects(pageable);
     }
 
     @GetMapping("/{id}")
