@@ -6,13 +6,11 @@ import com.mohit.portfolio_backend.entity.Project;
 import com.mohit.portfolio_backend.exception.ResourceNotFoundException;
 import com.mohit.portfolio_backend.repository.ProjectRepository;
 import com.mohit.portfolio_backend.service.ProjectService;
-import com.mohit.portfolio_backend.util.ProjectMapper;
+import com.mohit.portfolio_backend.mapper.ProjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

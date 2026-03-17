@@ -1,4 +1,4 @@
-package com.mohit.portfolio_backend.util;
+package com.mohit.portfolio_backend.mapper;
 
 import com.mohit.portfolio_backend.dto.ProjectRequest;
 import com.mohit.portfolio_backend.dto.ProjectResponse;
