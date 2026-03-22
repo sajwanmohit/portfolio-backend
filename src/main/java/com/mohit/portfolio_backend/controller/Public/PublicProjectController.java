@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/projects")
+@RequestMapping("/api/public/projects")
 @RequiredArgsConstructor
 public class PublicProjectController {
 
