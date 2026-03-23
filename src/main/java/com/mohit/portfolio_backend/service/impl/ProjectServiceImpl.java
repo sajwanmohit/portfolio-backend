@@ -29,9 +29,16 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectResponse> getAllProjects(Pageable pageable) {
+    public Page<ProjectResponse> getAllProjects(Pageable pageable, String search) {
 
-        Page<Project> page = projectRepository.findAll(pageable);
+        Page<Project> page;
+
+        if (search != null && !search.isBlank()) {
+            page = projectRepository
+                    .findByTitleContainingIgnoreCase(search, pageable);
+        } else {
+            page = projectRepository.findAll(pageable);
+        }
         return page.map(ProjectMapper::toResponse);
     }
 

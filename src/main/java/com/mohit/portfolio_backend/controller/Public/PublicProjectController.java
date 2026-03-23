@@ -4,6 +4,7 @@ import com.mohit.portfolio_backend.dto.ProjectRequest;
 import com.mohit.portfolio_backend.dto.ProjectResponse;
 import com.mohit.portfolio_backend.service.ProjectService;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ public class PublicProjectController {
     private final ProjectService projectService;
 
     @GetMapping
-    public Page<ProjectResponse> getProjects(Pageable pageable) {
-        return projectService.getAllProjects(pageable);
+    public Page<ProjectResponse> getProjects(@ParameterObject Pageable pageable, @RequestParam(required=false) String search) {
+        return projectService.getAllProjects(pageable, search);
     }
 
     @GetMapping("/{id}")
