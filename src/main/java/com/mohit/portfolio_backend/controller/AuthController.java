@@ -30,7 +30,7 @@ public class AuthController {
                 )
         );
 
-        String token = jwtUtil.generateToken(request.getUsername());
+        String token = jwtUtil.generateToken(request.getUsername(), "ADMIN");
 
         return Map.of("token", token);
     }
