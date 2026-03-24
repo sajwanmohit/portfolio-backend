@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin/skills")
+@RequestMapping("/api/admin/skills")
 @RequiredArgsConstructor
 public class AdminSkillController {
 

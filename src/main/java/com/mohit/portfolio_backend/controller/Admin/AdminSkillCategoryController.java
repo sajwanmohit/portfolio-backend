@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/skill-categories")
+@RequestMapping("/api/admin/skill-categories")
 @RequiredArgsConstructor
 public class AdminSkillCategoryController {
 

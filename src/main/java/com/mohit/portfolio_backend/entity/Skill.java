@@ -1,7 +1,9 @@
 package com.mohit.portfolio_backend.entity;
 
 import com.mohit.portfolio_backend.entity.SkillCategory;
+import com.mohit.portfolio_backend.enums.SkillLevel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +20,10 @@ public class Skill {
     @Column(nullable = false)
     private String name;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
     @Column
-    private String level;
+    private SkillLevel level;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
