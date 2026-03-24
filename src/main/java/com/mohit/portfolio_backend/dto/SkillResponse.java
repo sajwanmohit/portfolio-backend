@@ -8,7 +8,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class SkillResponse {
+
     private Long id;
     private String name;
     private String level;
+
+    private Long categoryId;     // ✅ needed for edit/update
+    private String categoryName; // ✅ needed for UI grouping
 }

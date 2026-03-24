@@ -3,23 +3,31 @@ package com.mohit.portfolio_backend.mapper;
 import com.mohit.portfolio_backend.dto.SkillRequest;
 import com.mohit.portfolio_backend.dto.SkillResponse;
 import com.mohit.portfolio_backend.entity.Skill;
-import org.springframework.stereotype.Component;
+import com.mohit.portfolio_backend.entity.SkillCategory;
 
-@Component
 public class SkillMapper {
 
-    public Skill toEntity(SkillRequest request) {
+    public static Skill toEntity(SkillRequest request, SkillCategory category) {
         Skill skill = new Skill();
         skill.setName(request.getName());
         skill.setLevel(request.getLevel());
+        skill.setCategory(category);
         return skill;
     }
 
-    public SkillResponse toResponse(Skill skill) {
+    public static void updateEntity(Skill skill, SkillRequest request, SkillCategory category) {
+        skill.setName(request.getName());
+        skill.setLevel(request.getLevel());
+        skill.setCategory(category);
+    }
+
+    public static SkillResponse toResponse(Skill skill) {
         return new SkillResponse(
                 skill.getId(),
                 skill.getName(),
-                skill.getLevel()
+                skill.getLevel(),
+                skill.getCategory().getId(),
+                skill.getCategory().getName()
         );
     }
 }
