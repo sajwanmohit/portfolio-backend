@@ -1,14 +1,14 @@
 package com.mohit.portfolio_backend.mapper;
 
 import com.mohit.portfolio_backend.dto.ContactRequest;
-import com.mohit.portfolio_backend.entity.ContactMessage;
+import com.mohit.portfolio_backend.entity.Contact;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ContactMapper {
 
-    public ContactMessage toEntity(ContactRequest request) {
-        ContactMessage entity = new ContactMessage();
+    public Contact toEntity(ContactRequest request) {
+        Contact entity = new Contact();
         entity.setName(request.getName());
         entity.setEmail(request.getEmail());
         entity.setCompany(request.getCompany());

@@ -1,31 +1,26 @@
 package com.mohit.portfolio_backend.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-
+import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "contact_messages")
-@Getter
-@Setter
-public class ContactMessage {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
     private String email;
-
     private String company;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 2000)
     private String message;
 
-    @CreationTimestamp
     private LocalDateTime createdAt;
 }
