@@ -4,6 +4,8 @@ import com.mohit.portfolio_backend.dto.SkillRequest;
 import com.mohit.portfolio_backend.dto.SkillResponse;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
+
 public interface SkillService {
 
     SkillResponse create(SkillRequest request);
@@ -12,5 +14,5 @@ public interface SkillService {
 
     void delete(Long id);
 
-    Page<SkillResponse> getAll(int page, int size, String search);
+    List<SkillResponse> getAll();
 }

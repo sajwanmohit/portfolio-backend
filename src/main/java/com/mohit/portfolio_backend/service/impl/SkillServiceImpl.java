@@ -15,6 +15,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SkillServiceImpl implements SkillService {
@@ -51,13 +53,11 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public Page<SkillResponse> getAll(int page, int size, String search) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+    public List<SkillResponse> getAll() {
 
-        Page<Skill> result = (search == null || search.isBlank())
-                ? skillRepository.findAll(pageable)
-                : skillRepository.findByNameContainingIgnoreCase(search, pageable);
-
-        return result.map(SkillMapper::toResponse);
+        return skillRepository.findAll()
+                .stream()
+                .map(SkillMapper::toResponse)
+                .toList();
     }
 }
