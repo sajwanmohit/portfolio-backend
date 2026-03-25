@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/admin/skills")
 @RequiredArgsConstructor
@@ -33,11 +35,7 @@ public class AdminSkillController {
     }
 
     @GetMapping
-    public Page<SkillResponse> getAll(
-            @RequestParam int page,
-            @RequestParam int size,
-            @RequestParam(required = false) String search
-    ) {
-        return skillService.getAll(page, size, search);
+    public List<SkillResponse> getAll() {
+        return skillService.getAll();
     }
 }

@@ -19,7 +19,7 @@ public class Contact {
     private String email;
     private String company;
 
-    @Column(length = 2000)
+    @Column(length = 3000)
     private String message;
 
     private LocalDateTime createdAt;
