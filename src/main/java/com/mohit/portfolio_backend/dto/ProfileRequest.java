@@ -1,11 +1,9 @@
 package com.mohit.portfolio_backend.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
-public class ProfileResponse {
+public class ProfileRequest {
     private String name;
     private String designation;
     private String about;
