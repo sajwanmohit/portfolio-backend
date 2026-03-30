@@ -19,8 +19,7 @@ public class PublicSkillController {
     private final SkillService service;
 
     @GetMapping
-    public Page<SkillResponse> getAll(@RequestParam(defaultValue = "0") int page,
-                                      @RequestParam(defaultValue = "10") int size) {
-        return service.getAll(page,size);
+    public List<SkillResponse> getAll() {
+        return service.getAll();
     }
 }
