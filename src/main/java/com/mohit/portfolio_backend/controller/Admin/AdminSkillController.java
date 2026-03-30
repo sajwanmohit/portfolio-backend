@@ -35,7 +35,8 @@ public class AdminSkillController {
     }
 
     @GetMapping
-    public List<SkillResponse> getAll() {
-        return skillService.getAll();
+    public Page<SkillResponse> getAll(@RequestParam(defaultValue = "0") int page,
+                                      @RequestParam(defaultValue = "10") int size) {
+        return skillService.getAll(page, size);
     }
 }

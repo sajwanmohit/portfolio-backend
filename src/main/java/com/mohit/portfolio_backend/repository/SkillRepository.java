@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SkillRepository extends JpaRepository<Skill, Long> {
 
     Page<Skill> findByNameContainingIgnoreCase(String search, Pageable pageable);
+    boolean existsByCategoryId(Long categoryId);
+
 }
