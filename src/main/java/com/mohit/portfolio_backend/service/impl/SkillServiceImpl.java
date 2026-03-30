@@ -53,11 +53,11 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public List<SkillResponse> getAll() {
+    public Page<SkillResponse> getAll(int page, int size) {
 
-        return skillRepository.findAll()
-                .stream()
-                .map(SkillMapper::toResponse)
-                .toList();
+        Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
+
+        return skillRepository.findAll(pageable)
+                .map(SkillMapper::toResponse);
     }
 }

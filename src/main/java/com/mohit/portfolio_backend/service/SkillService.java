@@ -14,5 +14,5 @@ public interface SkillService {
 
     void delete(Long id);
 
-    List<SkillResponse> getAll();
+    Page<SkillResponse> getAll(int page, int size);
 }
