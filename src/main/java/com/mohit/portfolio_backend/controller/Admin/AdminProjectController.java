@@ -20,6 +20,13 @@ public class AdminProjectController {
     public ProjectResponse createProject(@Valid @RequestBody ProjectRequest request) {
         return projectService.createProject(request);
     }
+    @GetMapping
+    public Page<ProjectResponse> getAllProjects(
+            @RequestParam(required = false) String search,
+            Pageable pageable
+    ) {
+        return projectService.getAllProjects(pageable, search, null);
+    }
     @PutMapping("/{id}")
     public ProjectResponse updateProject(
             @PathVariable Long id,

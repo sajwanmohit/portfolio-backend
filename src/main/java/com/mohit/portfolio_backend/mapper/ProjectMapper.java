@@ -14,6 +14,7 @@ public class ProjectMapper {
                 .liveUrl(request.getLiveUrl())
                 .imageUrl(request.getImageUrl())
                 .techStack(request.getTechStack())
+                .isSelected(request.getIsSelected() != null ? request.getIsSelected() : false)
                 .build();
     }
 
@@ -26,6 +27,7 @@ public class ProjectMapper {
                 .liveUrl(project.getLiveUrl())
                 .imageUrl(project.getImageUrl())
                 .techStack(project.getTechStack())
+                .isSelected(project.getIsSelected())
                 .build();
     }
     public static void updateEntity(Project project, ProjectRequest request) {
@@ -35,5 +37,8 @@ public class ProjectMapper {
         project.setLiveUrl(request.getLiveUrl());
         project.setImageUrl(request.getImageUrl());
         project.setTechStack(request.getTechStack());
+        if (request.getIsSelected() != null) {
+            project.setIsSelected(request.getIsSelected());
+        }
     }
 }

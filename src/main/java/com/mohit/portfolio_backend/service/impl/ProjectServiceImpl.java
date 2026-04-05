@@ -29,13 +29,14 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Page<ProjectResponse> getAllProjects(Pageable pageable, String search) {
+    public Page<ProjectResponse> getAllProjects(Pageable pageable, String search, Boolean selected) {
 
         Page<Project> page;
 
-        if (search != null && !search.isBlank()) {
-            page = projectRepository
-                    .findByTitleContainingIgnoreCase(search, pageable);
+        if (Boolean.TRUE.equals(selected)) {
+            page = projectRepository.findByIsSelectedTrue(pageable);
+        } else if (search != null && !search.isBlank()) {
+            page = projectRepository.findByTitleContainingIgnoreCase(search, pageable);
         } else {
             page = projectRepository.findAll(pageable);
         }
