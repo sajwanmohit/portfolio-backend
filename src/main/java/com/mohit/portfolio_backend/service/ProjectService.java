@@ -5,13 +5,12 @@ import com.mohit.portfolio_backend.dto.ProjectResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 
 public interface ProjectService {
 
     ProjectResponse createProject(ProjectRequest request);
 
-    Page<ProjectResponse> getAllProjects(Pageable pageable, String search);
+    Page<ProjectResponse> getAllProjects(Pageable pageable, String search, Boolean selected);
 
     ProjectResponse getProject(Long id);
 

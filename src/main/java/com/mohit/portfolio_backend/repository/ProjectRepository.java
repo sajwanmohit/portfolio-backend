@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
     Page<Project> findByTitleContainingIgnoreCase(String title, Pageable pageable);
+    Page<Project> findByIsSelectedTrue(Pageable pageable);
 }

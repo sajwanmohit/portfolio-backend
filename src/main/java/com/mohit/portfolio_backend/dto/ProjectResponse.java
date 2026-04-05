@@ -20,4 +20,6 @@ public class ProjectResponse {
     private String imageUrl;
 
     private String techStack;
+
+    private Boolean isSelected;
 }

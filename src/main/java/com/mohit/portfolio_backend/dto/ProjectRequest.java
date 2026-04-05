@@ -18,4 +18,6 @@ public class ProjectRequest {
     private String imageUrl;
 
     private String techStack;
+
+    private Boolean isSelected;
 }

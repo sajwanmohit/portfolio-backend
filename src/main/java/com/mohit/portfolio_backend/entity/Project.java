@@ -27,4 +27,7 @@ public class Project {
     private String imageUrl;
 
     private String techStack;
+
+    @Column(name = "is_selected")
+    private Boolean isSelected = false;
 }
