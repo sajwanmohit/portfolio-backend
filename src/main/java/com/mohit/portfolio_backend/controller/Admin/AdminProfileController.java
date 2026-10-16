@@ -20,4 +20,9 @@ public class AdminProfileController {
         Profile saved = profileService.saveOrUpdate(request);
         return ProfileMapper.toResponse(saved);
     }
+
+    @GetMapping
+    public ProfileResponse getProfile() {
+        return ProfileMapper.toAdminResponse(profileService.getProfile());
+    }
 }

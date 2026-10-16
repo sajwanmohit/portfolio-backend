@@ -28,6 +28,21 @@ public class ProfileMapper {
                 .build();
     }
 
+    public static ProfileResponse toAdminResponse(Profile profile) {
+        return ProfileResponse.builder()
+                .name(valueOrEmpty(profile == null ? null : profile.getName()))
+                .designation(valueOrEmpty(profile == null ? null : profile.getDesignation()))
+                .about(valueOrEmpty(profile == null ? null : profile.getAbout()))
+                .ownerGithubProfileURL(valueOrEmpty(profile == null ? null : profile.getOwnerGithubProfileURL()))
+                .ownerLinkedinProfileURL(valueOrEmpty(profile == null ? null : profile.getOwnerLinkedinProfileURL()))
+                .ownerEmailAddress(valueOrEmpty(profile == null ? null : profile.getOwnerEmailAddress()))
+                .build();
+    }
+
+    private static String valueOrEmpty(String value) {
+        return value == null ? "" : value;
+    }
+
     public static void update(Profile existing, ProfileRequest req) {
         existing.setName(req.getName());
         existing.setDesignation(req.getDesignation());
